@@ -1,0 +1,1 @@
+web: gunicorn api_vinhote.wsgi --log-file -
