@@ -1,0 +1,21 @@
+API Vinhote
+=================================================================
+
+Python 3.6, Django 2.1, Pip 9
+
+* Virtual Env
+  - Criar
+    python -m venv .vEnv
+
+  - Executar
+    . .vEnv/bin/activate
+
+* Dependencias
+  - Instalar
+    pip install -r requirements.txt
+
+* Database
+  - Export Env
+    export DATABASE_URL=postgres://postgres:postgres@localhost:5433/vinhote
+
+
