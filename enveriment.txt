@@ -18,4 +18,24 @@ Python 3.6, Django 2.1, Pip 9
   - Export Env
     export DATABASE_URL=postgres://postgres:postgres@localhost:5433/vinhote
 
+* Coletor de arquivos estáticos
+  - Executar
+    python manage.py collectstatic
+
+* Debug
+  - Ativar logs da aplicação em runtime
+    export DEBUG=True
+
+* Heroku Migrate
+  - Abrir bash
+    heroku run bash -a apivinhote
+
+* Executar migração do banco
+  - Executar
+    python manage.py makemigrations
+    python manage.py migrate
+
+# Super usuário
+  - Executar
+    python manage.py createsuperuser --email vinhote@api.com
 
