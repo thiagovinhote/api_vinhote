@@ -51,6 +51,7 @@ DEFAULT_APPS = [
 THIRD_PARTY_APPS = [
   'rest_framework',
   'storages',
+  'django_filters',
   'whitenoise.runserver_nostatic',
   'corsheaders',
 ]
@@ -79,7 +80,8 @@ ROOT_URLCONF = 'api_vinhote.urls'
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 4,
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
+    'PAGE_SIZE': 100,
 }
 
 TEMPLATES = [

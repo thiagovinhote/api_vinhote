@@ -10,11 +10,13 @@ class LinkSerializer(serializers.ModelSerializer):
     model = Link
     fields = '__all__'
 
+
 class LinkSimpleSerializer(LinkSerializer):
   
   class Meta:
     model = Link
     fields = ('id', 'url', 'type_display')
+
 
 class ProjectSerializer(serializers.ModelSerializer):
   
@@ -24,8 +26,26 @@ class ProjectSerializer(serializers.ModelSerializer):
     model = Project
     fields = '__all__'
 
+
 class JobSerializer(serializers.ModelSerializer):
 
   class Meta:
     model = Job
     fields = '__all__'
+
+
+class ExperienceSerializer(serializers.ModelSerializer):
+  
+  days_time = serializers.IntegerField(read_only = True)
+
+  class Meta:
+    model = Experience
+    fields = '__all__'
+
+
+class SkillSerializer(serializers.ModelSerializer):
+  
+  class Meta:
+    model = Skill
+    fields = '__all__'
+

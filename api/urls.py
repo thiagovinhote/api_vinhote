@@ -7,6 +7,8 @@ router = routers.DefaultRouter()
 router.register(r'projects', ProjectViewSet, 'projects')
 router.register(r'work', JobViewSet, 'work')
 router.register(r'links', LinkViewSet, 'links')
+router.register(r'experiences', ExperienceViewSet, 'experiences')
+router.register(r'skills', SkillViewSet, 'skills')
 
 urlpatterns = [
   url(r'^', include(router.urls)),
