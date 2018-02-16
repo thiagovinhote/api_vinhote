@@ -17,6 +17,9 @@ Python 3.6, Django 2.1, Pip 9
 * Database
   - Export Env
     export DATABASE_URL=postgres://postgres:postgres@localhost:5433/vinhote
+  - Reset
+    PGUSER=postgres PGPASSWORD=postgres PGPORT=5433 heroku pg:push  vinhote DATABASE_URL --app apivinhote
+    PGUSER=postgres PGPASSWORD=postgres PGPORT=5433 heroku pg:pull DATABASE_URL vinhote --app apivinhote
 
 * Coletor de arquivos estáticos
   - Executar
