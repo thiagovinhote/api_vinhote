@@ -59,7 +59,6 @@ media/
 .env
 .env~
 *.txt~
-migrations/
 staticfiles/
 *.swp
 *.vscode
