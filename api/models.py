@@ -34,7 +34,7 @@ class Link(models.Model):
     verbose_name_plural = u'Links'
 
   def __str__(self):
-    return '%s - %s'%(self.type, self.url)
+    return '%s - %s | %s'%(self.type, self.url, self.project.name)
     
 
 class Job(models.Model):
