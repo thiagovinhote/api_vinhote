@@ -38,3 +38,9 @@ class SkillViewSet(viewsets.ModelViewSet):
   
   queryset = Skill.objects.all()
   serializer_class = SkillSerializer
+
+
+class CertificateViewSet(viewsets.ModelViewSet):
+
+  queryset = Certificate.objects.all()
+  serializer_class = CertificateSerializer

@@ -49,3 +49,9 @@ class SkillSerializer(serializers.ModelSerializer):
     model = Skill
     fields = '__all__'
 
+
+class CertificateSerializer(serializers.ModelSerializer):
+  
+  class Meta:
+    model = Certificate
+    fields = '__all__'

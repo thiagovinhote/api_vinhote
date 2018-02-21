@@ -9,6 +9,7 @@ router.register(r'work', JobViewSet, 'work')
 router.register(r'links', LinkViewSet, 'links')
 router.register(r'experiences', ExperienceViewSet, 'experiences')
 router.register(r'skills', SkillViewSet, 'skills')
+router.register(r'certificates', CertificateViewSet, 'certificates')
 
 urlpatterns = [
   url(r'^', include(router.urls)),
