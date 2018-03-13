@@ -1,12 +1,22 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User
 from rest_framework import viewsets, pagination, generics
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAdminUser, IsAuthenticated, AllowAny
 from django_filters.rest_framework import DjangoFilterBackend
 
 from .models import *
 from .serializers import *
 
-class DefaultPagination(pagination.PageNumberPagination):       
-       page_size = 4
+class UserViewSet(viewsets.ModelViewSet):
+  
+  queryset = User.objects.all()
+  serializer_class = UserSerializer
+
+
+class DefaultPagination(pagination.PageNumberPagination):
+  page_size = 4
+
 
 class ProjectViewSet(viewsets.ModelViewSet):
 
@@ -19,6 +29,7 @@ class JobViewSet(viewsets.ModelViewSet):
 
   queryset = Job.objects.all()
   serializer_class = JobSerializer
+  filter_backends = (DjangoFilterBackend,)
   filter_fields = ('name', 'is_store')
 
 

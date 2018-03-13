@@ -40,6 +40,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 DEFAULT_APPS = [
+  'django.contrib.sites',
   'django.contrib.admin',
   'django.contrib.auth',
   'django.contrib.contenttypes',
@@ -50,6 +51,11 @@ DEFAULT_APPS = [
 
 THIRD_PARTY_APPS = [
   'rest_framework',
+  'rest_framework.authtoken',
+  'allauth',
+  'allauth.account',
+  'rest_auth',
+  'rest_auth.registration',
   'storages',
   'django_filters',
   'whitenoise.runserver_nostatic',
@@ -61,6 +67,8 @@ LOCAL_APPS = [
 ]
 
 INSTALLED_APPS = LOCAL_APPS + THIRD_PARTY_APPS + DEFAULT_APPS
+
+SITE_ID = 1
 
 MIDDLEWARE = [
   'corsheaders.middleware.CorsMiddleware',
@@ -78,9 +86,18 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'api_vinhote.urls'
 
+REST_USE_JWT = True
+
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
+    'DEFAULT_PERMISSION_CLASSES': (
+      'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+      'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+      'rest_framework.authentication.SessionAuthentication',
+    ),
     'PAGE_SIZE': 100,
 }
 
