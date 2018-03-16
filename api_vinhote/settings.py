@@ -86,6 +86,12 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'api_vinhote.urls'
 
+JWT_AUTH = {
+  'JWT_ALLOW_REFRESH': True,
+}
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 REST_USE_JWT = True
 
 REST_FRAMEWORK = {
