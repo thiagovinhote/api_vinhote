@@ -54,6 +54,7 @@ THIRD_PARTY_APPS = [
   'rest_framework.authtoken',
   'allauth',
   'allauth.account',
+  'allauth.socialaccount',
   'rest_auth',
   'rest_auth.registration',
   'storages',
@@ -86,12 +87,6 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'api_vinhote.urls'
 
-JWT_AUTH = {
-  'JWT_ALLOW_REFRESH': True,
-}
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 REST_USE_JWT = True
 
 REST_FRAMEWORK = {
@@ -106,6 +101,17 @@ REST_FRAMEWORK = {
     ),
     'PAGE_SIZE': 100,
 }
+
+REST_AUTH_SERIALIZERS = {
+  'USER_DETAILS_SERIALIZER': 'api.serializers.UserSerializerAuth',
+}
+
+AUTHENTICATION_BACKENDS = (
+  'django.contrib.auth.backends.ModelBackend',
+  'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 TEMPLATES = [
   {
@@ -195,3 +201,11 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATICFILES_DIRS = [
   os.path.join(PROJECT_ROOT, 'static'),
 ]
+
+AUTH_USER_MODEL = 'api.User'
+# ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+# ACCOUNT_EMAIL_VERIFICATION = 'optional'
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = 'username'

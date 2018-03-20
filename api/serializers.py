@@ -12,6 +12,25 @@ class UserSerializer(serializers.ModelSerializer):
     }
 
 
+class UserSerializerAuth(UserSerializer):
+  
+  class Meta:
+    model = User
+    fields = (
+      'id',
+      'username',
+      'first_name',
+      'last_name',
+      'email',
+      'is_superuser',
+      'is_active',
+      'avatar',
+    )
+    extra_kwargs = {
+      'password': {'write_only': True}
+    }
+
+
 class LinkSerializer(serializers.ModelSerializer):
   
   type_display = serializers.ChoiceField(LINK_TYPES, source = 'get_type_display', read_only = True)
