@@ -124,7 +124,7 @@ class Job(models.Model):
   
   name = models.CharField('nome', max_length = 100, default = '', blank = False, null = False)
   description = models.CharField('descrição', max_length = 500, null = False)
-  image = models.FileField('imagem', upload_to = 'job', blank = False, null = False)
+  image = models.FileField('imagem', upload_to = 'job', blank = True, null = True)
   
   is_store = models.BooleanField('na loja', default = False, blank = True)
   link_store = models.CharField('link da loja', max_length = 200, default = '', blank = True, null = True)
