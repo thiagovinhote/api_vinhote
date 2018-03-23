@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 
 import os
 import dj_database_url
+from datetime import timedelta
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -88,6 +89,13 @@ CORS_ORIGIN_ALLOW_ALL = True
 ROOT_URLCONF = 'api_vinhote.urls'
 
 REST_USE_JWT = True
+
+JWT_AUTH = {
+  'JWT_ALLOW_REFRESH': True,
+  'JWT_AUTH_HEADER_PREFIX': 'Bearer',
+  'JWT_EXPIRATION_DELTA': timedelta(hours=1),
+  'JWT_REFRESH_EXPIRATION_DELTA': timedelta(days=7),
+}
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
