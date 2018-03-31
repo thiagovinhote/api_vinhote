@@ -55,6 +55,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(_('staff'), default = False)
     is_superuser = models.BooleanField(_('superuser'), default = False)
     avatar = models.FileField('avatar', upload_to = 'avatar/', null = True, blank = True)
+    role = models.CharField('cargo', max_length = 60, null = False, blank = False, default = '')
+    bio = models.CharField('bio', max_length = 300, null = False, blank = True, default = '')
 
     objects = UserManager()
 

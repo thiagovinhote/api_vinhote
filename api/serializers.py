@@ -25,6 +25,8 @@ class UserSerializerAuth(UserSerializer):
       'is_superuser',
       'is_active',
       'avatar',
+      'role',
+      'bio',
     )
     extra_kwargs = {
       'password': {'write_only': True}
