@@ -7,7 +7,7 @@
     "COPY /src/requirements.txt /usr/src/app",
     "RUN pip install -r /usr/src/app/requirements.txt",
     "COPY /src /usr/src/app",
-    "CMD [\"python\", \"manage.py\", \"collectstatic\"]",
+    "CMD [\"python\", \"/usr/src/app/manage.py\", \"collectstatic\"]",
     "ENV PORT 80",
     "EXPOSE 80",
     "CMD [\"gunicorn\", \"api_vinhote.wsgi\", \"--log-file\", \"-\"]"
