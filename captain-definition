@@ -7,7 +7,7 @@
                       "ADD /config/requirements.pip /config",
                       "RUN pip install -r /config/requirments.pip",
                       "RUN mkdir -p /src",
-                      "WORK /src",
+                      "WORKDIR /src",
                       "ENV PORT 80",
                       "EXPOSE 80",
                       "CMD [ \"gunicorn\", \"api-vinhote.wsgi\", \"--log-file -\"]"
