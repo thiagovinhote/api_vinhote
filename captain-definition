@@ -1,4 +1,17 @@
 {
   "schemaVersion": 1,
-  "templateId" :"django/3.4"
+  "templateId": [
+    "FROM python:3.4",
+    "RUN apt-get update \
+      && apt-get install -y --no-install-recommends \
+      postgresql-client \
+      && rm -rf /var/lib/apt/lists/*",
+    "WORKDIR /usr/src/app",
+    "COPY requirements.txt ./",
+    "RUN pip install -r requirements.txt",
+    "COPY . .",
+    "ENV PORT 80",
+    "EXPOSE 80",
+    "CMD [\"gunicorn\", \"api_vinhote.wsgi\", \"--log-file\", \"-\"]"
+  ]
 }
