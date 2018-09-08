@@ -1,15 +1,4 @@
 {
   "schemaVersion": 1,
-  "dockerfileLines": [
-                      "FROM python:3.5",
-                      "ENV PYTHONUNBUFFERED 1",
-                      "RUN mkdir -p /config",
-                      "ADD /config/requirements.pip /config",
-                      "RUN pip install -r /config/requirments.pip",
-                      "RUN mkdir -p /src",
-                      "WORKDIR /src",
-                      "ENV PORT 80",
-                      "EXPOSE 80",
-                      "CMD [ \"gunicorn\", \"api-vinhote.wsgi\", \"--log-file -\"]"
-                    ]
+  "templateId" :"python-django/3.6.3"
 }
