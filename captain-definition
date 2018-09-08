@@ -10,6 +10,6 @@
                       "WORK /src",
                       "ENV PORT 80",
                       "EXPOSE 80",
-                      "CMD [ \"gunicorn\", \"api-vinhote.wsgi\", "--log-file -" ]"
+                      "CMD [ \"gunicorn\", \"api-vinhote.wsgi\", \"--log-file -\"]"
                     ]
 }
