@@ -8,8 +8,9 @@
     "RUN pip install -r /usr/src/app/requirements.txt",
     "COPY /src /usr/src/app",
     "CMD [\"python\", \"manage.py\", \"collectstatic\"]",
-    "ENV PORT 8000",
+    "ENV DATABASE_URL \"postgres://ikuashygouswhq:7f3d307c371dbb1c4a9356fe3b7b59dcb53cac8ce4e98ae2bb305477ecf1908f@ec2-184-73-174-171.compute-1.amazonaws.com:5432/d6cko8c9qmhu8o\"",
+    "ENV PORT 80",
     "EXPOSE 80",
-    "CMD [\"python3\", \"manage.py\", \"runserver\", \"0.0.0.0:8000\"]"
+    "CMD [\"gunicorn\", \"api_vinhote.wsgi\", \"--log-file\", \"-\"]"
   ]
 }
